@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCloud | 资源中心</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fastlist-css.pages.dev/css2.css">
+  <link rel="stylesheet" href="https://fastlist-css.pages.dev/css.css">
+  <style>
+    /* css */
+    :root {
+      --primary: #0067C0;
+      --on-primary: #FFFFFF;
+      --primary-container: #D3E5FF;
+      --on-primary-container: #001D36;
+      
+      --secondary: #535F70;
+      --on-secondary: #FFFFFF;
+      --secondary-container: #D7E3F7;
+      --on-secondary-container: #101C2B;
+      
+      --surface: #F9F9FA;
+      --on-surface: #1A1C1E;
+      --surface-variant: #DFE2EB;
+      --on-surface-variant: #43474E;
+      
+      --background: #F9F9FA;
+      --on-background: #1A1C1E;
+      
+      --outline: #74777F;
+      --outline-variant: #C4C6D0;
+      
+      --error: #BA1A1A;
+      --on-error: #FFFFFF;
+      --error-container: #FFDAD6;
+      --on-error-container: #410002;
+      
+      --success: #0C7D60;
+      --on-success: #FFFFFF;
+      --success-container: #A6F2DB;
+      --on-success-container: #002116;
+      
+      --warning: #E6B400;
+      --on-warning: #FFFFFF;
+      --warning-container: #FFE9A3;
+      --on-warning-container: #4C3D00;
+      
+      --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+      --elevation-2: 0 2px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.1);
+      --elevation-3: 0 4px 12px rgba(0, 0, 0, 0.05), 0 6px 12px rgba(0, 0, 0, 0.1);
+      
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 18px;
+      --radius-xxl: 28px;
+      
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --spacing-xl: 32px;
+      --spacing-xxl: 48px;
+      
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      --icon-size-sm: 18px;
+      --icon-size-md: 24px;
+      --icon-size-lg: 32px;
+    }
+
+    /* 暗色主题 */
+    [data-theme="dark"] {
+      --primary: #A8C8FF;
+      --on-primary: #003059;
+      --primary-container: #00497E;
+      --on-primary-container: #D3E5FF;
+      
+      --secondary: #BBC7DB;
+      --on-secondary: #253140;
+      --secondary-container: #3B4858;
+      --on-secondary-container: #D7E3F7;
+      
+      --surface: #121316;
+      --on-surface: #E2E2E5;
+      --surface-variant: #43474E;
+      --on-surface-variant: #C4C6D0;
+      
+      --background: #121316;
+      --on-background: #E2E2E5;
+      
+      --outline: #8E9199;
+      --outline-variant: #43474E;
+      
+      --error: #FFB4AB;
+      --on-error: #690005;
+      --error-container: #93000A;
+      --on-error-container: #FFDAD6;
+      
+      --success: #88D8BF;
+      --on-success: #00382A;
+      --success-container: #00503F;
+      --on-success-container: #A6F2DB;
+      
+      --warning: #FFDC48;
+      --on-warning: #3D3000;
+      --warning-container: #5F4E00;
+      --on-warning-container: #FFE9A3;
+      
+      --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.3);
+      --elevation-2: 0 2px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3);
+      --elevation-3: 0 4px 12px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', 'Segoe UI', system-ui, sans-serif;
+      transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+    }
+    
+    body {
+      background-color: var(--background);
+      color: var(--on-background);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      padding: var(--spacing-md);
+    }
+    
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+      padding-bottom: var(--spacing-xl);
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+
+    header {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin: var(--spacing-xl) 0;
+      position: relative;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .logo-icon {
+      background: var(--primary);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon i {
+      font-size: 28px;
+      color: var(--on-primary);
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .theme-switcher {
+      position: fixed;
+      top: var(--spacing-md);
+      right: var(--spacing-md);
+      z-index: 1000;
+      display: f
